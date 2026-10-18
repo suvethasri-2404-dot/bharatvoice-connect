@@ -1,0 +1,12 @@
+
+{
+  "name": "BharatVoice Connect",
+  "short_name": "BharatVoice",
+  "description": "A communication board to help users express their needs.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#f5f7fb",
+  "background_color": "#f5f7fb"
+}
