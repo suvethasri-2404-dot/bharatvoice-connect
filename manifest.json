@@ -1,5 +1,6 @@
 
 {
+  "id": "./",
   "name": "BharatVoice Connect",
   "short_name": "BharatVoice",
   "description": "A communication board to help users express their needs.",
@@ -8,5 +9,19 @@
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#f5f7fb",
-  "background_color": "#f5f7fb"
+  "background_color": "#f5f7fb",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
 }
