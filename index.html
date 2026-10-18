@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f8fc">
+  <meta name="description" content="BharatVoice Connect is a multilingual AAC communication board.">
+  <title>BharatVoice Connect</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="BharatVoice Connect home" data-page="home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 27s-10-6.2-10-14a5.5 5.5 0 0 1 10-3 5.5 5.5 0 0 1 10 3c0 7.8-10 14-10 14Z" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"/><path d="M9 16h4l2-4 3.1 8 2-4H24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="brand-copy"><strong>BharatVoice</strong><small>CONNECT</small></span>
+      </a>
+      <div class="profile-chip"><span class="avatar">BV</span><span><strong>My communication space</strong><small>Personal AAC board</small></span></div>
+      <p class="nav-label">WORKSPACE</p>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-page="home"><span class="nav-icon">⌂</span><span>Home</span></button>
+        <button class="nav-item" data-page="communicate"><span class="nav-icon">▦</span><span>Communication board</span></button>
+        <button class="nav-item" data-page="favourites"><span class="nav-icon">♡</span><span>Favourites</span><span class="nav-count" id="favouriteCount">0</span></button>
+        <button class="nav-item" data-page="recent"><span class="nav-icon">◷</span><span>Recent phrases</span></button>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span><span>Settings</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="privacy-note"><span class="privacy-dot"></span><div><strong>Your voice, your choice</strong><small>Speech is generated on this device when supported.</small></div></div>
+        <div class="sidebar-footer">BharatVoice Connect <span>•</span> Web edition</div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu icon-button" id="menuButton" aria-label="Open navigation">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><span class="crumb-slash">/</span><strong id="pageCrumb">Home</strong></div>
+        <div class="top-actions">
+          <label class="language-control"><span class="language-symbol">文</span><select id="language" aria-label="Choose language"><option value="en-US">English</option><option value="ta-IN">தமிழ்</option><option value="hi-IN">हिन्दी</option></select></label>
+          <button class="avatar top-avatar" data-page="settings" aria-label="Open settings">BV</button>
+        </div>
+      </header>
+
+      <section class="page active-page" id="page-home">
+        <div class="welcome-row">
+          <div><p class="eyebrow">YOUR COMMUNICATION SPACE</p><h1 id="welcomeTitle">Every voice matters.</h1><p class="page-subtitle" id="welcomeSubtitle">Choose a message, build a sentence, and let your voice be heard.</p></div>
+          <div class="date-chip"><span class="date-icon">✳</span><span><strong>Ready when you are</strong><small>Take your time. There is no rush.</small></span></div>
+        </div>
+        <div class="quick-stats">
+          <div class="stat-card"><span class="stat-icon mint">▦</span><div><small>QUICK MESSAGES</small><strong id="phraseTotal">24</strong></div></div>
+          <div class="stat-card"><span class="stat-icon lavender">♡</span><div><small>YOUR FAVOURITES</small><strong id="statFavourites">0</strong></div></div>
+          <div class="stat-card"><span class="stat-icon peach">◷</span><div><small>RECENTLY USED</small><strong id="statRecent">0</strong></div></div>
+        </div>
+        <div class="section-heading"><div><p class="eyebrow">START HERE</p><h2>What would you like to say?</h2></div><button class="text-button" data-page="communicate">View all messages <span>→</span></button></div>
+        <div class="category-grid" id="homeCategories">
+          <button class="category-card category-needs" data-category="needs"><span class="category-illustration">💧</span><span class="category-copy"><strong>Basic needs</strong><small>Water, food, rest and more</small></span><span class="category-arrow">↗</span></button>
+          <button class="category-card category-feelings" data-category="feelings"><span class="category-illustration">🌤️</span><span class="category-copy"><strong>Feelings</strong><small>Share how you feel</small></span><span class="category-arrow">↗</span></button>
+          <button class="category-card category-help" data-category="help"><span class="category-illustration">🤝</span><span class="category-copy"><strong>Help & safety</strong><small>Ask for help or a break</small></span><span class="category-arrow">↗</span></button>
+          <button class="category-card category-social" data-category="social"><span class="category-illustration">💬</span><span class="category-copy"><strong>People & social</strong><small>Connect with others</small></span><span class="category-arrow">↗</span></button>
+        </div>
+        <div class="section-heading recent-heading"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h2>Recently used</h2></div><button class="text-button" data-page="recent">See history <span>→</span></button></div>
+        <div id="homeRecent" class="mini-recent empty-state">Your recent messages will appear here after you use them.</div>
+      </section>
+
+      <section class="page" id="page-communicate">
+        <div class="page-heading"><div><p class="eyebrow">COMMUNICATION BOARD</p><h1>Find your words.</h1><p class="page-subtitle">Tap a card to speak it, or add it to your sentence.</p></div><button class="primary-button" id="addPhraseButton"><span>＋</span> Add a phrase</button></div>
+        <div class="board-toolbar"><label class="search-box"><span>⌕</span><input id="phraseSearch" type="search" placeholder="Search messages..." autocomplete="off"><kbd>/</kbd></label><div class="filter-wrap"><label for="categoryFilter" class="sr-only">Filter by category</label><select id="categoryFilter"><option value="all">All categories</option><option value="needs">Basic needs</option><option value="feelings">Feelings</option><option value="help">Help & safety</option><option value="social">People & social</option><option value="activities">Activities</option></select></div></div>
+        <div class="board-meta"><span id="boardResultCount">24 messages</span><span>Tap <b>Speak</b> to communicate · <b>＋</b> to build a sentence</span></div>
+        <div class="phrase-grid" id="phraseGrid" aria-live="polite"></div>
+        <div class="no-results hidden" id="noResults"><span>⌕</span><strong>No messages found</strong><p>Try another search, or add a phrase that works for you.</p></div>
+      </section>
+
+      <section class="page" id="page-favourites">
+        <div class="page-heading"><div><p class="eyebrow">SAVED FOR YOU</p><h1>Your favourites.</h1><p class="page-subtitle">Keep the messages you use most close at hand.</p></div><button class="secondary-button" data-page="communicate">Browse messages →</button></div>
+        <div class="phrase-grid" id="favouritesGrid"></div><div class="empty-panel hidden" id="favouritesEmpty"><span>♡</span><h3>Your favourites will live here</h3><p>Tap the heart on any message card to save it.</p><button class="primary-button" data-page="communicate">Explore messages</button></div>
+      </section>
+
+      <section class="page" id="page-recent">
+        <div class="page-heading"><div><p class="eyebrow">YOUR ACTIVITY</p><h1>Recent phrases.</h1><p class="page-subtitle">Your latest messages, ready to use again.</p></div><button class="secondary-button" id="clearRecentButton">Clear history</button></div>
+        <div class="phrase-grid" id="recentGrid"></div><div class="empty-panel hidden" id="recentEmpty"><span>◷</span><h3>No recent messages yet</h3><p>Messages you speak will show up here for easy access.</p><button class="primary-button" data-page="communicate">Start communicating</button></div>
+      </section>
+
+      <section class="page" id="page-settings">
+        <div class="page-heading"><div><p class="eyebrow">MAKE IT YOURS</p><h1>Settings.</h1><p class="page-subtitle">Adjust how BharatVoice Connect works for you.</p></div></div>
+        <div class="settings-layout">
+          <div class="settings-card"><div class="settings-card-title"><span class="settings-icon">◉</span><div><h2>Speech & language</h2><p>Choose the language and voice used when speaking.</p></div></div><label class="field-label" for="settingsLanguage">App language</label><select class="settings-select" id="settingsLanguage"><option value="en-US">English (India / default browser voice)</option><option value="ta-IN">Tamil (தமிழ்)</option><option value="hi-IN">Hindi (हिन्दी)</option></select><label class="field-label" for="speechRate">Speech speed <span id="speechRateValue">0.85×</span></label><input id="speechRate" class="range-control" type="range" min="0.6" max="1.2" step="0.05" value="0.85"><div class="range-labels"><span>Slower</span><span>Faster</span></div><button class="secondary-button test-speech" id="testSpeechButton">▶ Test speech</button><p class="settings-help">Speech depends on the voices available in your browser and operating system. You may need to install a language voice in system settings.</p></div>
+          <div class="settings-card"><div class="settings-card-title"><span class="settings-icon purple">▦</span><div><h2>Communication preferences</h2><p>Choose the interaction that feels comfortable.</p></div></div><div class="setting-row"><div><strong>Speak when a card is tapped</strong><small>Read the phrase aloud immediately.</small></div><label class="switch"><input type="checkbox" id="autoSpeakToggle" checked><span></span></label></div><div class="setting-row"><div><strong>Show phrase text</strong><small>Keep written words visible on each card.</small></div><label class="switch"><input type="checkbox" id="showTextToggle" checked><span></span></label></div><div class="setting-row"><div><strong>Reduce animations</strong><small>Use calmer, simpler transitions.</small></div><label class="switch"><input type="checkbox" id="reduceMotionToggle"><span></span></label></div></div>
+          <div class="settings-card full-width"><div class="settings-card-title"><span class="settings-icon amber">ⓘ</span><div><h2>About BharatVoice Connect</h2><p>A communication support prototype designed to help people express everyday needs and feelings.</p></div></div><div class="about-tags"><span>Multilingual AAC</span><span>Browser text-to-speech</span><span>Responsive interface</span><span>Hardware integration planned</span></div><p class="settings-help">Your phrase favourites and recent messages are stored in this browser on this device. This prototype does not send them to a server. Hardware and Bluetooth are not connected yet.</p><button class="secondary-button" id="resetPreferencesButton">Reset preferences</button></div>
+        </div>
+      </section>
+
+      <footer class="app-footer"><span>Designed for communication, at your pace.</span><span>Made with care <span class="footer-heart">♥</span></span></footer>
+    </main>
+  </div>
+
+  <div class="sentence-dock" id="sentenceDock">
+    <div class="sentence-content"><span class="sentence-icon">✎</span><div class="sentence-main"><div class="sentence-topline"><strong>Build a sentence</strong><span id="sentenceCount">0 words</span></div><div class="sentence-output" id="sentenceOutput">Tap ＋ on messages to build a sentence.</div></div></div>
+    <div class="sentence-actions"><button class="icon-button clear-sentence" id="clearSentenceButton" aria-label="Clear sentence" title="Clear sentence">×</button><button class="secondary-button" id="clearSentenceTextButton">Clear</button><button class="primary-button speak-sentence" id="speakSentenceButton">🔊 Speak sentence</button></div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <dialog class="phrase-dialog" id="phraseDialog">
+    <form method="dialog" id="phraseForm">
+      <div class="dialog-header"><div><p class="eyebrow">PERSONALISE YOUR BOARD</p><h2>Add your own phrase</h2></div><button class="icon-button" value="cancel" aria-label="Close">×</button></div>
+      <p class="dialog-subtitle">Create a message that is meaningful in your everyday life.</p>
+      <label class="field-label" for="newPhraseText">Phrase in English</label><input id="newPhraseText" class="text-field" maxlength="100" placeholder="For example: Please wait for me" required>
+      <label class="field-label" for="newPhraseTamil">Tamil translation <span class="optional-label">Optional</span></label><input id="newPhraseTamil" class="text-field" maxlength="100" placeholder="தமிழில் எழுதவும்">
+      <label class="field-label" for="newPhraseHindi">Hindi translation <span class="optional-label">Optional</span></label><input id="newPhraseHindi" class="text-field" maxlength="100" placeholder="हिन्दी में लिखें">
+      <label class="field-label" for="newPhraseCategory">Category</label><select id="newPhraseCategory" class="settings-select"><option value="needs">Basic needs</option><option value="feelings">Feelings</option><option value="help">Help & safety</option><option value="social">People & social</option><option value="activities">Activities</option></select>
+      <div class="dialog-actions"><button type="button" class="secondary-button" id="cancelPhraseButton">Cancel</button><button type="submit" class="primary-button">Add phrase</button></div>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
